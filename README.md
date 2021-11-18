@@ -6,3 +6,4 @@ You'll need to serve the index file:
 python3 -m http.server 8000
 ```
 
+Also, copy the mosquitto config file into the volume.
