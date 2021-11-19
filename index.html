@@ -62,7 +62,8 @@
         var topic = message.destinationName;
         var payload = message.payloadString;
 
-        $('#ws').prepend('<li>' + topic + ' = ' + payload + '</li>');
+        //$('#ws').prepend('<li>' + topic + ' = ' + payload + '</li>');
+            $('#ws').html('<h1>' + payload + '</h1>');
     };
 
 
@@ -78,7 +79,10 @@
         <div>Subscribed to <input type='text' id='topic' disabled />
         Status: <input type='text' id='status' size="80" disabled /></div>
 
-        <ul id='ws' style="font-family: 'Courier New', Courier, monospace;"></ul>
+        <!--<ul id='ws' style="font-family: 'Courier New', Courier, monospace;"></ul>-->
+        <center>
+          <div id='ws'></div>
+        </center>
     </div>
   </body>
 </html>
