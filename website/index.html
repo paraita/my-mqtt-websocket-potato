@@ -28,7 +28,7 @@
             cleanSession: cleansession,
             onSuccess: onConnect,
             onFailure: function (message) {
-                $('#status').val("Connection failed: " + message.errorMessage + "Retrying");
+                console.log('Connection failed: ' + message.errorMessage + ', retrying..');
                 setTimeout(MQTTconnect, reconnectTimeout);
             }
         };
@@ -45,25 +45,19 @@
     }
 
     function onConnect() {
-        $('#status').val('Connected to ' + host + ':' + port + path);
-        // Connection succeeded; subscribe to our topic
         mqtt.subscribe(topic, {qos: 0});
-        $('#topic').val(topic);
+        console.log('Connected to ' + host + ':' + port + path + ', topic->' + topic)
     }
 
     function onConnectionLost(response) {
         setTimeout(MQTTconnect, reconnectTimeout);
-        $('#status').val("connection lost: " + responseObject.errorMessage + ". Reconnecting");
-
+        console.log('Connection lost: ' + responseObject.errorMessage + ', retrying..')
     };
 
     function onMessageArrived(message) {
-
         var topic = message.destinationName;
         var payload = message.payloadString;
-
-        //$('#ws').prepend('<li>' + topic + ' = ' + payload + '</li>');
-            $('#ws').html('<h1>' + payload + '</h1>');
+        $('#ws').html('<h1>' + payload + '</h1>');
     };
 
 
@@ -74,15 +68,8 @@
     </script>
   </head>
   <body>
-    <h1>Mosquitto Websockets</h1>
-    <div>
-        <div>Subscribed to <input type='text' id='topic' disabled />
-        Status: <input type='text' id='status' size="80" disabled /></div>
-
-        <!--<ul id='ws' style="font-family: 'Courier New', Courier, monospace;"></ul>-->
-        <center>
-          <div id='ws'></div>
-        </center>
-    </div>
+    <center>
+      <div id='ws'></div>
+    </center>
   </body>
 </html>
