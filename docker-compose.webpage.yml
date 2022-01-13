@@ -1,7 +1,0 @@
-lighttpd:
-  image: sebp/lighttpd
-  volumes:
-    - ./website:/var/www/localhost/htdocs
-  ports:
-    - "8000:80"
-  tty: true

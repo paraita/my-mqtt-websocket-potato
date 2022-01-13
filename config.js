@@ -1,5 +1,5 @@
 // host = '172.16.153.122';	// hostname or IP address
-host = '127.0.0.1';	// hostname or IP address
+host = '192.168.10.24';	// hostname or IP address
 // host = '172.16.153.110';	// hostname or IP address
 port = 8883;
 topic = 'my_topic';		// topic to subscribe to
