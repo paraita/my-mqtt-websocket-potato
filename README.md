@@ -1,9 +1,6 @@
-Install the mqtt dependency !
-Mosquitto is served via the docker-compose file
-You'll need to serve the index file:
+Just run the docker-compose file to create the mqtt instance and the associated web server.
 
-```sh
-python3 -m http.server 8000
-```
+A python script is provided to send messages to the queue.
 
-Also, copy the mosquitto config file into the volume.
+:attention you will need to update the config.js file accordingly to the mqtt ip address.
+
