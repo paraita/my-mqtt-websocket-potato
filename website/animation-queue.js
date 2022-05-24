@@ -22,10 +22,10 @@ class Particle {
 
     update() {
         if (this.y > canvas.height) {
-            this.y = 0;
-            this.weight = 0.5;
-            this.x = Math.random() * canvas.width;
-            // this.isDead = true;
+            //this.y = 0;
+            //this.weight = 0.5;
+            //this.x = Math.random() * canvas.width;
+            this.isDead = true;
         }
         this.weight += 0.01;
         this.y += this.weight;
@@ -38,7 +38,7 @@ class Particle {
     }
 }
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 0; i++) {
     particleArray.push(new Particle(
         Math.random() * canvas.width,
         Math.random() * canvas.height))
@@ -107,6 +107,7 @@ function onMessageArrived(message) {
     const topic = message.destinationName;
     const payload = message.payloadString;
     $('#ws').html('<h1>' + payload + '</h1>');
+    particleArray.push(new Particle(Math.random() * canvas.width, 0));
 };
 
 $(document).ready(function () {
